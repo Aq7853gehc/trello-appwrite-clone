@@ -6,10 +6,15 @@ import { DragDropContext, Droppable } from "react-beautiful-dnd";
 type Props = {};
 
 const Board = (props: Props) => {
-  const getBoard = useBoardStore((state) => state.getBoard);
+  const [board, getBoard] = useBoardStore((state) => [
+    state.board,
+    state.getBoard,
+  ]);
   useEffect(() => {
     getBoard();
   }, [getBoard]);
+
+  console.log(board);
 
   return (
     <h1>HEllo</h1>
