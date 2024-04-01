@@ -41,7 +41,7 @@ const Header = (props: Props) => {
         </div>
       </div>
 
-      <div className="flex items-center justify-center px-5 md:py-5">
+      <div className="flex items-center justify-center px-5 md:py-5 mb-2">
         <p className="flex tex-base items-center p-5 font-light shadow-xl pr-5 text-sm rounded-xl bg-white w-fit italic max-w-3xl text-[#0055d1]">
           <UserCircleIcon className="h-10 w-10 text-[#0055d1] " />
           GPT summerising your tasks for the day...
