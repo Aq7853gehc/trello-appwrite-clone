@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-
+import Model from "@/components/Model";
 
 export const metadata: Metadata = {
   title: "Trello 2.0 Clone",
@@ -14,7 +14,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={""}>{children}</body>
+      <body className={""}>
+        {children}
+        <Model /> 
+      </body>
     </html>
   );
 }

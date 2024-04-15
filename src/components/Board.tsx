@@ -7,10 +7,11 @@ import Column from "./Column";
 type Props = {};
 
 const Board = (props: Props) => {
-  const [board, getBoard, setBoardState] = useBoardStore((state) => [
+  const [board, getBoard, setBoardState,updateTodoInDB] = useBoardStore((state) => [
     state.board,
     state.getBoard,
     state.setBoardState,
+    state.updateTodoInDB
   ]);
   useEffect(() => {
     getBoard();
@@ -69,6 +70,28 @@ const Board = (props: Props) => {
       setBoardState({
         ...board,
         columns: newColumn,
+      });
+    } else {
+      // dragging to another
+      const finishedTodo = Array.from(endCol.todos);
+      finishedTodo.splice(destination.index, 0, todoMove);
+      const newColumns = new Map(board.columns);
+      const newCol = {
+        id: startCol.id,
+        todos: newTodos,
+      };
+      newColumns.set(startCol.id, newCol);
+      newColumns.set(endCol.id, {
+        id: endCol.id,
+        todos: finishedTodo,
+      });
+
+      // update to DB
+      updateTodoInDB(todoMove, endCol.id)
+
+      setBoardState({
+        ...board,
+        columns: newColumns,
       });
     }
   };
