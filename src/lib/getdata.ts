@@ -2,8 +2,8 @@ import { databases } from "@/appwrite";
 
 export const getdata = async () => {
   const data = await databases.listDocuments(
-    process.env.65ebdb723ca867b5c0d2!,
-    process.env.65ebdba6a6003d194eb7!
+    "65ebdb723ca867b5c0d2"!,
+      "65ebdba6a6003d194eb7"!,
   );
 
   const todo = data.documents;

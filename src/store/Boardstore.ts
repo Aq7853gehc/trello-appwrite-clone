@@ -51,16 +51,16 @@ export const useBoardStore = create<BoardState>((set, get) => ({
       await storage.deleteFile(todo.image.bucketID, todo.image.fileId);
     }
     await databases.deleteDocument(
-      process.env.65ebdb723ca867b5c0d2!,
-      process.env.65ebdba6a6003d194eb7!,
+      "65ebdb723ca867b5c0d2"!,
+      "65ebdba6a6003d194eb7"!,
       todo.$id
     );
   },
 
   updateTodoInDB: async (todo, columnId) => {
     await databases.updateDocument(
-      process.env.65ebdb723ca867b5c0d2!,
-      process.env.65ebdba6a6003d194eb7!,
+      "65ebdb723ca867b5c0d2"!,
+      "65ebdba6a6003d194eb7"!,
       todo.$id,
       {
         title: todo.title,
@@ -82,8 +82,8 @@ export const useBoardStore = create<BoardState>((set, get) => ({
     }
 
     const { $id } = await databases.createDocument(
-      process.env.65ebdb723ca867b5c0d2!,
-      process.env.65ebdba6a6003d194eb7!,
+      "65ebdb723ca867b5c0d2"!,
+      "65ebdba6a6003d194eb7"!,
       ID.unique(),
       {
         title: todo,
