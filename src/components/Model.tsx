@@ -36,11 +36,10 @@ function Model() {
   };
   return (
     <>
-      
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog
           as="form"
-          onSubmit={(e) => handleSubmit}
+          onSubmit={handleSubmit}
           className="relative z-10"
           onClose={closeModal}
         >
@@ -90,6 +89,7 @@ function Model() {
 
                   <div className="mt-2">
                     <button
+                      type="button"
                       onClick={(e) => {
                         imagePickerRef.current?.click();
                       }}
